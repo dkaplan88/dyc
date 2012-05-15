@@ -1,0 +1,8 @@
+<h1>Concert Listings</h1>
+<% @events.each do |event| %>
+<p><%= link_to event["artists"]["headliner"], artist_path(event["artists"]["headliner"]) %> </br>
+	<%= event["venue"]["location"]["street"] %>	</p>
+<% end %>
+
+<%= @ip %>
+<%= @city %>
