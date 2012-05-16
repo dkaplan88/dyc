@@ -1,3 +1,5 @@
-<h1><%= @artist["name"] %></h1>
-<%= @artist["bio"]["content"].html_safe %>
+<h1 style ="text-align:center"><%= @artist["name"] %></h1>
 
+<img class="id" src="<%= @artist["image"][4]["content"] %>"/>
+
+<%= @artist["bio"]["content"].html_safe %>

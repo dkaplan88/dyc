@@ -1,8 +1,17 @@
-<h1>Concert Listings</h1>
+<h1>DateYourCity</h1>
+
+<h2>Concert Listings in <%= @city %></h1>
 <% @events.each do |event| %>
-<p><%= link_to event["artists"]["headliner"], artist_path(event["artists"]["headliner"]) %> </br>
-	<%= event["venue"]["location"]["street"] %>	</p>
+<div style="height:200px">
+	<div style ="float:right">
+	<img src="<%= event["image"][3]["content"] %>" />
+	</div>
+	<p>
+		<%= link_to event["artists"]["headliner"], artist_path(event["artists"]["headliner"]) %> </br>
+		<%= event["venue"]["location"]["street"] %></br>
+		<%= event["startDate"] %>	
+	</p>
+</div>
 <% end %>
 
-<%= @ip %>
-<%= @city %>
+
