@@ -1,0 +1,14 @@
+<h1>Deals</h1>
+<% @groupon["deals"].each do |deal| %>
+	<p>
+		<%= image_tag deal["largeImageUrl"]%><br>
+		<%=link_to deal["title"], "#" %><br>
+		<h2>Merchant Name: <%= deal["merchant"]["name"] %></h2>
+		<b>It Cost You!:</b> <%= deal["options"][0]["price"]["formattedAmount"] %><br>
+		<b>It Costs Everybody Else:</b> <%= deal["options"][0]["value"]["formattedAmount"] %><br>
+		<b>Discount:</b> <%= deal["options"][0]["discountPercent"] %>%<br>
+		<h3>Details:</h3> <%= deal["pitchHtml"].html_safe %>
+		----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	</p>
+<%end%>
+		

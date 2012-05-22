@@ -41,6 +41,10 @@ GEM
     execjs (1.3.2)
       multi_json (~> 1.0)
     geocoder (1.1.1)
+    groupon (0.0.1)
+      hashie (>= 0.1.3)
+      httparty (>= 0.1.0)
+    hashie (1.2.0)
     hike (1.2.1)
     httparty (0.8.3)
       multi_json (~> 1.0)
@@ -115,6 +119,8 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   geocoder
+  groupon
+  httparty
   jquery-rails
   lastfm
   rails (= 3.2.3)

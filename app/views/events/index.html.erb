@@ -1,17 +1,23 @@
-<h1>DateYourCity</h1>
-
-<h2>Concert Listings in <%= @city %></h1>
+<h2>Concert Listings in <%= @city %></h2>
 <% @events.each do |event| %>
-<div style="height:200px">
-	<div style ="float:right">
-	<img src="<%= event["image"][3]["content"] %>" />
+	<body class="event">
+	<div>
+		<div>
+		<img class="event" src="<%= event["image"][3]["content"] %>" />
 	</div>
 	<p>
 		<%= link_to event["artists"]["headliner"], artist_path(event["artists"]["headliner"]) %> </br>
 		<%= event["venue"]["location"]["street"] %></br>
-		<%= event["startDate"] %>	
-	</p>
-</div>
+		<%= event["startDate"] %>	<br>
+		<% if event["website"] == {} %>
+			Sorry Tickets Are Unavailable<br>
+		<% else %>
+			<%= link_to "Get Tickets!", event["website"] %>	<br>
+		<% end %>
+	<%# info = @lastfm.event.get_info([event["id"]]) %>
+
+	<div class="clearfix"><br>
+	</body>
 <% end %>
 
 

@@ -15,8 +15,9 @@ class EventsController < ApplicationController
     # @lastfm = Lastfm.new("56d33663d228d59052676ff139ba3649", "803ad83bd5299a436c8c09b087a27d17")
        # @token = @lastfm.auth.get_token
        # @lastfm.session = @lastfm.auth.get_session(@token)['key']
-    @events = @lastfm.geo.get_events(@city,0,2) 
+    @events = @lastfm.geo.get_events(@city,0,20) 
     respond_with @events 
+    
     
     # respond_to do |format| 
     #      format.html 

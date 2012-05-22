@@ -5,4 +5,5 @@ Dyc::Application.routes.draw do
   resources :events 
   resources :artists, only: [:index, :show]
   resources :users 
+  resources :deals 
 end
