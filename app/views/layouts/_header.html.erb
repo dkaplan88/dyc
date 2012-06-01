@@ -4,5 +4,15 @@
 			<li class="header"><a class="header" href="/events">Concerts</a></li>
 			<li class="header"><a class="header" href="/artists">Artists</a></li> 
 			<li class="header"><a class="header" href="/deals">Deals</a></li>
+			<% if session[:uid] %>
+				<li class="header"><%= link_to "Log Out", log_out_url %></li>
+			<% else %>
+				<li class="header"><%= link_to "Sign Up", new_user_url %></li>
+				<li class="header"><%= link_to "Log In", log_in_url %></li>
+			<% end %>
 		</ul>
 </header>
+
+<% if flash[:notice] %>
+	<p style="color:blue"><%= flash[:notice] %></p>
+<% end %>

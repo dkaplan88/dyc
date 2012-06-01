@@ -1,8 +1,25 @@
 class UsersController < ApplicationController
-  before_filter :lastfm 
-  respond_to :html, :json
-  def show
-    @user = @lastfm.user.get_top_artists(params[:id])
-    respond_with @user
+  
+  def new
+    @user = User.new
   end
+  
+  def create
+    @user = User.create(params[:user])
+    session[:uid] = @user.id
+    
+    redirect_to root_url, notice: "Welcome!"    
+  end
+  
+  def edit
+  end
+  
+  def update
+  end
+  
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to root_url, notice: "GoodBye"
+  end
+  
 end

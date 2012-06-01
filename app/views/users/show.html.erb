@@ -1,7 +1,0 @@
-<h1>Your Top Artists</h1>
-<% @user.each do |user| %>
-<p><%= link_to user["name"], artist_path(user["name"]) %></p>	
-<p>Number of Plays: <%= user["playcount"] %></p>	
-<% end %>
-
-<!-- link_to artist["name"], artist_path(artist["name"]) -->

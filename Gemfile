@@ -8,7 +8,11 @@ gem 'groupon'
 gem 'httparty'
 gem 'sqlite3'
 gem 'lastfm'
+gem 'nokogiri'
 gem 'geocoder'
+# gem 'movie_show_times'
+# gem 'google_showtimes'
+gem 'will_paginate', '3.0.3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -24,7 +28,7 @@ end
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
