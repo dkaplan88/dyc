@@ -9,16 +9,27 @@
 		<img class="event" src="<%= event["image"][3]["content"] %>" />
 	</div>
 	<p>
-		<%= link_to event["artists"]["headliner"], artist_path(event["artists"]["headliner"]) %></br> 
-		<%= link_to event["venue"]["name"], event["venue"]["website"] %><br>
-		<% if event["venue"]["location"]["street"] == {}%>
-			No Location Specified!<br>
+		<strong>Headliner:</strong> <%= link_to event["artists"]["headliner"], artist_path(event["artists"]["headliner"]) %></br> 
+		<% if event["artists"]["artist"].class == String  %>
+		<strong>Full Lineup:</strong> <%= event["artists"]["artist"] %></br>
 		<% else %>
-		<%= event["venue"]["location"]["street"] %></br>
+		<strong>Full Lineup:</strong> <%= event["artists"]["artist"].join(", ") %></br> 
 		<% end %>
-		<%= event["startDate"] %>	<br>
+		<strong>Venue:</strong> <%= link_to event["venue"]["name"], event["venue"]["website"] %><br>
+		<% if event["venue"]["location"]["street"] == {}%>
+		<strong>Location:</strong> No Location Specified!<br>
+		<% else %>
+		<strong>Location:</strong> <%= event["venue"]["location"]["street"] %> 
+		<% unless event["venue"]["location"]["postalcode"] == {} %> 
+				<%= event["venue"]["location"]["postalcode"] %>
+		<% end %>	
+		<% unless event["venue"]["location"]["city"] == {} %>
+		<%= event["venue"]["location"]["city"] %></br>
+		<% end %>
+		<% end %>
+		<strong>Date:</strong> <%= event["startDate"] %>	<br>
 		<% if event["website"] == {} %>
-			Sorry Tickets Are Unavailable!<br>
+			<strong>Sorry Tickets Are Unavailable!</strong><br>
 		<% else %>
 			<%= link_to "Get Tickets!", event["website"] %>	<br>
 		<% end %>

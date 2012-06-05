@@ -1,0 +1,28 @@
+<%=	 form_for @user do |u| %>
+	
+<p>
+	<%= u.label :username, "Choose A Username:" %>	
+</p>
+<p>
+	<%= u.text_field :username %>
+</p>
+
+<p>
+	<%= u.label :email, "Your Email:" %>	
+</p>
+<p>
+	<%= u.text_field :email %>
+</p>
+
+<p>
+	<%= u.label :password, "Pick a Password:" %>		
+</p>
+<p>	
+	<%= u.password_field :password %>
+</p>
+
+<p>
+<%= u.submit "Sign Up"  %>
+</p>
+
+<% end %>

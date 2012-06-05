@@ -1,0 +1,20 @@
+<table>
+	<tr>
+		<th style="text-align:center">Date</th>
+		<th style="text-align:center">Time</th>
+		<th style="text-align:center">Away Team</th>
+		<th style="text-align:center">Home Team</th>
+		<th style="text-align:center">Location</th>
+		<th style="text-align:center">Buy Tickets</th>
+	</tr>
+<% @doc.each do |w| %>
+	<tr>
+		<td style="text-align:center"><%= w.start %></td>
+		<td style="text-align:center"><%= w.time %></td>
+		<td style="text-align:center"><%= w.away %></td>
+		<td style="text-align:center"><%= w.home %></td>
+		<td style="text-align:center"><%= w.location %></td>
+		<td style="text-align:center">Buy Tickets</td>
+	</tr>
+<% end %>
+</table>	
