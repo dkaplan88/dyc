@@ -3,40 +3,46 @@
 <%#= will_paginate  %>
 
 <% @events.each do |event| %>
-	<body class="event">
-	<div>
+	<div class="event">
 		<div>
 		<img class="event" src="<%= event["image"][3]["content"] %>" />
+		</div>
+			<p>
+				<strong>Headliner:</strong> <%= link_to event["artists"]["headliner"],
+																		artist_path(event["artists"]["headliner"]) %></br> 
+				
+				<% if event["artists"]["artist"].class == String  %>
+					<strong>Full Lineup:</strong> <%= event["artists"]["artist"] %></br>
+				<% else %>
+					<strong>Full Lineup:</strong> <%= event["artists"]["artist"].join(", ") %></br> 
+				<% end %>
+				
+					<strong>Venue:</strong> <%= link_to event["venue"]["name"], event["venue"]["website"] %><br>
+				
+				<% if event["venue"]["location"]["street"] == {}%>
+					<strong>Location:</strong> No Location Specified!<br>
+				<% else %>
+					<strong>Location:</strong> <%= event["venue"]["location"]["street"] %> 
+					<% unless event["venue"]["location"]["postalcode"] == {} %> 
+						<%= event["venue"]["location"]["postalcode"] %>
+					<% end %>	
+				
+					<% unless event["venue"]["location"]["city"] == {} %>
+						<%= event["venue"]["location"]["city"] %></br>
+					<% end %>
+				<% end %>
+				
+				<strong>Date:</strong> <%= event["startDate"] %>	<br>
+				
+				<% if event["website"] == {} %>
+					<strong>Sorry Tickets Are Unavailable!</strong><br>
+				<% else %>
+					<%= link_to "Get Tickets!", event["website"] %>	<br>
+				<% end %>
+			<%# info = @lastfm.event.get_info([event["id"]]) %>
+			<div class="clearfix"><br>
+		</p>
 	</div>
-	<p>
-		<strong>Headliner:</strong> <%= link_to event["artists"]["headliner"], artist_path(event["artists"]["headliner"]) %></br> 
-		<% if event["artists"]["artist"].class == String  %>
-		<strong>Full Lineup:</strong> <%= event["artists"]["artist"] %></br>
-		<% else %>
-		<strong>Full Lineup:</strong> <%= event["artists"]["artist"].join(", ") %></br> 
 		<% end %>
-		<strong>Venue:</strong> <%= link_to event["venue"]["name"], event["venue"]["website"] %><br>
-		<% if event["venue"]["location"]["street"] == {}%>
-		<strong>Location:</strong> No Location Specified!<br>
-		<% else %>
-		<strong>Location:</strong> <%= event["venue"]["location"]["street"] %> 
-		<% unless event["venue"]["location"]["postalcode"] == {} %> 
-				<%= event["venue"]["location"]["postalcode"] %>
-		<% end %>	
-		<% unless event["venue"]["location"]["city"] == {} %>
-		<%= event["venue"]["location"]["city"] %></br>
-		<% end %>
-		<% end %>
-		<strong>Date:</strong> <%= event["startDate"] %>	<br>
-		<% if event["website"] == {} %>
-			<strong>Sorry Tickets Are Unavailable!</strong><br>
-		<% else %>
-			<%= link_to "Get Tickets!", event["website"] %>	<br>
-		<% end %>
-	<%# info = @lastfm.event.get_info([event["id"]]) %>
-
-	<div class="clearfix"><br>
-	</body>
-<% end %>
-
+	
 
