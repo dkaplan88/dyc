@@ -103,3 +103,8 @@ a.header:hover {
 div.show {
 	position:relative;
 }
+
+#footer {
+	color:#FF0800;
+	background:black;
+}
