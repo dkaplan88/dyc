@@ -21,6 +21,11 @@ img.event {
 	padding: 0px 20px 0px 0px;
 }
 
+p.event {
+	float:left;
+	padding: 0px 140px 100px 0px;
+}
+
 body.event {
 	padding: 0px 20px 0px 20px;
 }

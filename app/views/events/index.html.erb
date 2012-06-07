@@ -5,7 +5,11 @@
 <% @events.each do |event| %>
 	<div class="event">
 		<div>
+			<% if event["image"][3]["content"] == nil %>
+			<p class="event">No Photo Available</p>
+			<% else %>
 		<img class="event" src="<%= event["image"][3]["content"] %>" />
+		<% end %>
 		</div>
 			<p>
 				<strong>Headliner:</strong> <%= link_to event["artists"]["headliner"],
