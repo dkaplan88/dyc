@@ -1,16 +1,19 @@
-<h2>Concert Listings in <%= @city %></h2>
+<h2 class="event">Concert Listings in <%= @city %></h2>
 
 <%#= will_paginate  %>
 
 <% @events.each do |event| %>
 	<div class="event">
 		<div>
+			
 			<% if event["image"][3]["content"] == nil %>
-			<p class="event">No Photo Available</p>
+				<p class="event">No Photo Available</p>
 			<% else %>
-		<img class="event" src="<%= event["image"][3]["content"] %>" />
-		<% end %>
+				<img class="event" src="<%= event["image"][3]["content"] %>" />
+			<% end %>
+			
 		</div>
+		
 			<p>
 				<strong>Headliner:</strong> <%= link_to event["artists"]["headliner"],
 																		artist_path(event["artists"]["headliner"]) %></br> 
@@ -21,7 +24,11 @@
 					<strong>Full Lineup:</strong> <%= event["artists"]["artist"].join(", ") %></br> 
 				<% end %>
 				
+				<% if event["venue"]["website"] == {} %>
+					<strong>Venue:</strong> <%= event["venue"]["name"] %><br>
+				<% else %>	
 					<strong>Venue:</strong> <%= link_to event["venue"]["name"], event["venue"]["website"] %><br>
+				<% end %>
 				
 				<% if event["venue"]["location"]["street"] == {}%>
 					<strong>Location:</strong> No Location Specified!<br>
@@ -43,8 +50,9 @@
 				<% else %>
 					<%= link_to "Get Tickets!", event["website"] %>	<br>
 				<% end %>
+				
 			<%# info = @lastfm.event.get_info([event["id"]]) %>
-			<div class="clearfix"><br>
+			<div class="clearfix"><br></div>
 		</p>
 	</div>
 		<% end %>

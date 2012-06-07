@@ -1,9 +1,13 @@
-<h1 style ="text-align:center"><%= @artist["name"] %></h1>
+<div class="show">
 
-<img class="id" src="<%= @artist["image"][4]["content"] %>"/>
+	<h1 style ="text-align:center"><%= @artist["name"] %></h1>
 
-<% if @artist["bio"]["content"] == {} %>
-	Sorry No Bio for this Artist!
-<% else %>	
-	<%= @artist["bio"]["content"].html_safe %>
-<% end %>
+	<div class="image"><img src="<%= @artist["image"][4]["content"] %>"/></div>
+	<% if @artist["bio"]["content"] == {} %>
+		Sorry No Bio for this Artist!
+	<% else %>	
+		<%= @artist["bio"]["content"].html_safe %>
+	<% end %>
+	<div class="clearfix"></div>
+
+</div>

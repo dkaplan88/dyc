@@ -11,19 +11,48 @@
  *= require_self
  *= require_tree .
 */
-img.id {
+html {
+	background:#FFF;
+}
+
+a {
+	text-decoration:none;
+}
+
+a:hover {
+	color:blue;
+}
+
+#wrapper { 
+	width:960px; 
+	margin: 0 auto -10px; 
+	position:relative; 
+	background:#D2DDFF;
+	box-shadow: 2px 0px 2px gray, -2px 0px 2px gray;
+	border-radius:2px;
+}
+
+#header {
+	background:black;
+}
+
+div.image {
 	float:left;
 	padding: 0px 20px 20px 20px;
 }
 
 img.event {
 	float:left;
-	padding: 0px 20px 0px 0px;
+	padding: 0px 20px 0px 10px;
 }
 
 p.event {
 	float:left;
-	padding: 0px 140px 100px 0px;
+	padding: 0px 140px 100px 10px;
+}
+
+h2.event {
+	padding:0px 0px 0px 10px;
 }
 
 body.event {
@@ -41,24 +70,36 @@ li.header {
 	display:inline; 
 	padding:10px;
 	text-decoration: none;
+	color:#FF0800;
 }
 
-ul.header { 
-	width:100%; 
+ul.header {  
 	height:48px;
 	text-align:center; 
 	font-size:20px; 
 	display:inline; 
+	background:gray;
 }
 
 h1.header {
 	font-family: "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;	font-weight:bold; 
 	font-size:90px; 
 	text-align:center; 
+	padding-top:5px;
+	color:#FF0800;
+	text-shadow: 2px 2px blue;
 /*	line-height: 1.4; */
 }
 
 a.header {
 	text-decoration:none;
-	color:red;
+	color:#FF0800;
+}
+
+a.header:hover {
+	color:blue;
+}
+
+div.show {
+	position:relative;
 }
