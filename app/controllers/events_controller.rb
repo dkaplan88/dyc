@@ -18,6 +18,14 @@ class EventsController < ApplicationController
     @events = @lastfm.geo.get_events(@city,0,20) 
     respond_with @events 
     
+    # if params[:keyword].nil?
+    #        @events 
+    #      else
+    #        @events = @events.each do |event|
+    #          event.where("LOWER(event['artists']['artist']) LIKE ?", "%#{params[:keyword].downcase}%") && event.where("LOWER(event['venue']['name']) LIKE ?", "%#{params[:keyword].downcase}%")
+    #        end
+    #      end
+    
     # @events= Events.paginate(page: params[:page])
     
     

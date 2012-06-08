@@ -1,9 +1,20 @@
-<h2 class="event">Concert Listings in <%= @city %></h2>
+<div class="event">
+
+	<div id="search">	
+		<form action="<%= events_url %>" method="get">
+	    <label for="keyword">Search:</label>
+	    <input type="search" name="keyword" size="30">
+	  </form>
+	</div>
+
+	<h2 class="event">Concert Listings in <%= @city %></h2>
+
+
 
 <%#= will_paginate  %>
 
 <% @events.each do |event| %>
-	<div class="event">
+				
 		<div>
 			
 			<% if event["image"][3]["content"] == nil %>
@@ -54,7 +65,7 @@
 			<%# info = @lastfm.event.get_info([event["id"]]) %>
 			<div class="clearfix"><br></div>
 		</p>
-	</div>
 		<% end %>
 	
+</div>
 

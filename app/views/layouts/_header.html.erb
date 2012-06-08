@@ -1,20 +1,20 @@
 <div id ="header">
 	<h1 class="header"><a class = "header" href="/">DateYourCity</a></h1>
-		<ul class="header">
-			<li class="header"><a class="header" href="/events">Concerts</a></li>
-			<li class="header"><a class="header" href="/artists">Artists</a></li> 
-			<li class="header"><a class="header" href="/deals">Deals</a></li>
+	<nav>
+		<ul>
+			<li><a href="/events">Concerts</a></li>
+			<li><a href="/artists">Artists</a></li> 
+			<li><a href="/deals">Deals</a></li>
 			<% if session[:uid] %>
-				<li class="header"><%= link_to "Log Out", log_out_url %></li>
+				<li><%= link_to "Log Out", log_out_url %></li>
 			<% else %>
-				<li class="header"><%= link_to "Sign Up", new_user_url %></li>
-				<li class="header"><%= link_to "Log In", log_in_url %></li>
+				<li><%= link_to "Sign Up", new_user_url %></li>
+				<li><%= link_to "Log In", log_in_url %></li>
 			<% end %>
 		</ul>
-		
+	</nav>	
 		<% if flash[:notice] %>
 			<p style="color:blue"><%= flash[:notice] %></p>
 		<% end %>
-
 </div>
 
