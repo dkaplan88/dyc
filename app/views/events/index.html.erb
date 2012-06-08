@@ -1,10 +1,17 @@
 <div class="event">
 
 	<div id="search">	
-		<form action="<%= events_url %>" method="get">
-	    <label for="keyword">Search:</label>
-	    <input type="search" name="keyword" size="30">
-	  </form>
+		<form method="get" action="http://www.google.com/search">
+
+		<input type="text"   name="q" size="31"
+		 maxlength="255" value="" />
+		<input type="submit" value="Search" />
+		<input type="radio"  name="sitesearch" value="" />
+		 The Web
+		<input type="radio"  name="sitesearch"
+		 value="dateyourcity.com" checked />DateYourCity<br />
+
+		</form>
 	</div>
 
 	<h2 class="event">Concert Listings in <%= @city %></h2>

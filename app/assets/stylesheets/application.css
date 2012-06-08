@@ -12,13 +12,14 @@
  *= require_tree .
 */
 html {
-	background:#FFF;
+	background:#e1e1d9;
+/*	background:#FFF;
 	background: -moz-linear-gradient(top, #fff, #89D2D6);
   background: -ms-linear-gradient(top, #fff, #89D2D6);
   background: -o-linear-gradient(top, #fff, #89D2D6);
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#89D2D6));
   background: -webkit-linear-gradient(top, #fff, #89D2D6);
-  background: linear-gradient(top, #fff, #89D2D6	);
+  background: linear-gradient(top, #fff, #89D2D6	);*/
 }
 
 a {
@@ -33,14 +34,16 @@ a:hover {
 	width:960px; 
 	margin: 0 auto -10px; 
 	position:relative; 
-	background:#D2DDFF;
-	box-shadow: 2px 0px 2px gray, -2px 0px 2px gray;
+	background:#e1e1d9;
+/*	background:#D2DDFF;
+*/	box-shadow: 2px 0px 2px gray, -2px 0px 2px gray;
 	border-radius:2px;
 }
 
 #header {
-	background:black;
-}
+	background:#e1e1d9;	
+/*	background:black;
+*/}
 
 div.image {
 	float:left;
@@ -68,6 +71,7 @@ body.event {
 .clearfix {
 	clear:both;
 }
+
 /*
 li.header { 
 	width:100%; 
@@ -144,5 +148,10 @@ nav ul li {
 	margin-top:-7px;
 	list-style:none;
 	color:#FF0800;
+}
+
+/* For the Artist: Show page mainly */
+p {
+	padding: 0px 5px 0px 5px;
 }
 

@@ -6,7 +6,7 @@
 	<% if @artist["bio"]["content"] == {} %>
 		Sorry No Bio for this Artist!
 	<% else %>	
-		<%= @artist["bio"]["content"].html_safe %>
+<p><%= @artist["bio"]["content"].html_safe %></p>	
 	<% end %>
 	<div class="clearfix"></div>
 
