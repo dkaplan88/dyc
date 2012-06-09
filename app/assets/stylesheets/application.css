@@ -111,6 +111,8 @@ a.header {
 
 a.header:hover {
 	color:blue;
+	text-shadow: 2px 2px #FF0800;
+	
 }
 
 div.show {
