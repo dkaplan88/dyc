@@ -12,7 +12,7 @@
  *= require_tree .
 */
 html {
-	background:white;
+	background:#FFF38F;
 /*	background:#FFF;
 	background: -moz-linear-gradient(top, #fff, #89D2D6);
   background: -ms-linear-gradient(top, #fff, #89D2D6);
@@ -24,6 +24,7 @@ html {
 
 a {
 	text-decoration:none;
+	color:red;
 }
 
 a:hover {
@@ -34,14 +35,14 @@ a:hover {
 	width:960px; 
 	margin: 0 auto -10px; 
 	position:relative; 
-	background:#e1e1d9;
+	background:#A9F2FF;
 /*	background:#D2DDFF;
 */	box-shadow: 2px 0px 2px gray, -2px 0px 2px gray;
 	border-radius:2px;
 }
 
 #header {
-	background:#e1e1d9;	
+	background:#A9F2FF;	
 /*	background:black;
 */}
 
@@ -72,6 +73,9 @@ body.event {
 	clear:both;
 }
 
+.event {
+	background:#A9F2FF;
+}
 /*
 li.header { 
 	width:100%; 
@@ -92,6 +96,7 @@ ul.header {
 	background:gray;
 }
 */
+
 h1.header {
 	font-family: "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;	
 	font-weight:bold; 
@@ -112,7 +117,6 @@ a.header {
 a.header:hover {
 	color:blue;
 	text-shadow: 2px 2px #FF0800;
-	
 }
 
 div.show {
