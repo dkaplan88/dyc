@@ -12,7 +12,7 @@
  *= require_tree .
 */
 html {
-	background:#e1e1d9;
+	background:white;
 /*	background:#FFF;
 	background: -moz-linear-gradient(top, #fff, #89D2D6);
   background: -ms-linear-gradient(top, #fff, #89D2D6);
@@ -117,9 +117,21 @@ div.show {
 	position:relative;
 }
 
+/* footer */
 #footer {
 	color:#FF0800;
 	background:black;
+}
+
+.copy a {
+	color:#FF0800;
+}
+
+.copy a:hover {
+	color:blue;
+}
+.copy .dan {
+	float:right;
 }
 
 #search {
