@@ -37,7 +37,7 @@ a:hover {
 	position:relative; 
 	background:#A9F2FF;
 /*	background:#D2DDFF;
-*/	box-shadow: 2px 0px 2px gray, -2px 0px 2px gray;
+*/	box-shadow: 2px 0px 10px gray, -2px 0px 10px gray;
 	border-radius:2px;
 }
 
