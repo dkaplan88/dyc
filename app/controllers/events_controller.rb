@@ -36,13 +36,13 @@ class EventsController < ApplicationController
       @concert = Event.where('LOWER(headline) LIKE ?', '%#{params[:keyword].downcase}%') && Event.where('LOWER(full_lineup) LIKE ?', '%#{params[:keyword].downcase}%') && Event.where('LOWER(venue) LIKE ?', '%#{params[:keyword].downcase}%') && Event.where('LOWER(date) LIKE ?', '%#{params[:keyword].downcase}%') && Event.where('LOWER(location) LIKE ?', '%#{params[:keyword].downcase}%')
     end
     
-    # if params[:keyword].nil?
-    #        @events 
-    #      else
-    #        @events = @events.each do |event|
-    #          event.where('LOWER(event['artists']['artist']) LIKE ?', '%#{params[:keyword].downcase}%') && event.where('LOWER(event['venue']['name']) LIKE ?', '%#{params[:keyword].downcase}%')
-    #        end
-    #      end
+    if params[:keyword].nil?
+           @events 
+         else
+           @events = @events.each do |event|
+             event.where("LOWER(event['artists']['artist']) LIKE ?", "%#{params[:keyword].downcase}%") && event.where("LOWER(event['venue']['name']) LIKE ?", "%#{params[:keyword].downcase}%")
+           end
+    end
     
     # @events= Events.paginate(page: params[:page])
     
