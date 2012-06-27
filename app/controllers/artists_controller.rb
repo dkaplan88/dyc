@@ -3,7 +3,7 @@ class ArtistsController < ApplicationController
   respond_to :html, :json
   def index
     @artists = @lastfm.library.get_artists(10)
-    respond_with @artists 
+    respond_with @artists
   end
 
   def show

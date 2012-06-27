@@ -1,74 +1,66 @@
-<div class="event">
+  <div class="event">
 
-	<div id="search">	
-		<form method="get" action="http://www.google.com/search">
-			<input type="text"   name="q" size="31"
-			 maxlength="255" value="" />
-			<input type="submit" value="Search" />
-			<input type="radio"  name="sitesearch" value="" />Google
-			<input type="radio"  name="sitesearch" value="dateyourcity.com" checked />DateYourCity<br />
-		</form>
-	</div>
+	  <div id="search">      
+        <form action="<%= events_url %>" method="get">
+          <label for="keyword">Search:</label>
+          <input type="search" name="keyword" placeholder="Search DateYourCity" size="40">
+        </form>
+      </div>
 
 	<h2 class="event">Concert Listings in <%= @city %></h2>
+  <% @events.each do |event| %>
 
+  		<div>
 
+  			<% if event["image"][3]["content"] == nil %>
+  				<p class="event">No Photo Available</p>
+  			<% else %>
+  				<img class="event" src="<%= event["image"][3]["content"] %>" />
+  			<% end %>
 
-<%#= will_paginate  %>
+  		</div>
 
-<% @events.each do |event| %>
-				
-		<div>
-			
-			<% if event["image"][3]["content"] == nil %>
-				<p class="event">No Photo Available</p>
-			<% else %>
-				<img class="event" src="<%= event["image"][3]["content"] %>" />
-			<% end %>
-			
-		</div>
-		
-			<p>
-				<strong>Headliner:</strong> <%= link_to event["artists"]["headliner"],
-																		artist_path(event["artists"]["headliner"]) %></br> 
-				
-				<% if event["artists"]["artist"].class == String  %>
-					<strong>Full Lineup:</strong> <%= event["artists"]["artist"] %></br>
-				<% else %>
-					<strong>Full Lineup:</strong> <%= event["artists"]["artist"].join(", ") %></br> 
-				<% end %>
-				
-				<% if event["venue"]["website"] == {} %>
-					<strong>Venue:</strong> <%= event["venue"]["name"] %><br>
-				<% else %>	
-					<strong>Venue:</strong> <%= link_to event["venue"]["name"], event["venue"]["website"] %><br>
-				<% end %>
-				
-				<% if event["venue"]["location"]["street"] == {}%>
-					<strong>Location:</strong> No Location Specified!<br>
-				<% else %>
-					<strong>Location:</strong> <%= event["venue"]["location"]["street"] %> 
-					<% unless event["venue"]["location"]["postalcode"] == {} %> 
-						<%= event["venue"]["location"]["postalcode"] %>
-					<% end %>	
-				
-					<% unless event["venue"]["location"]["city"] == {} %>
-						<%= event["venue"]["location"]["city"] %></br>
-					<% end %>
-				<% end %>
-				
-				<strong>Date:</strong> <%= event["startDate"] %>	<br>
-				
-				<% if event["website"] == {} %>
-					<strong>Sorry Tickets Are Unavailable!</strong><br>
-				<% else %>
-					<%= link_to "Get Tickets!", event["website"] %>	<br>
-				<% end %>
-				
-			<%# info = @lastfm.event.get_info([event["id"]]) %>
-			<div class="clearfix"><br></div>
-		</p>
-		<% end %>
-	
+  			<p>
+  				<strong>Headliner:</strong> <%= link_to event["artists"]["headliner"],
+  																		artist_path(event["artists"]["headliner"]) %></br> 
+
+  				<% if event["artists"]["artist"].class == String  %>
+  					<strong>Full Lineup:</strong> <%= link_to event["artists"]["artist"], artist_path(event["artists"]["artist"]) %></br>
+  				<% else %>
+  			<strong>Full Lineup:</strong><% event["artists"]["artist"].each do |artist| %>
+  				  <%= link_to "#{artist}", artist_path(artist) %> |
+  				  <% end  %><br>
+  				<% end %>
+  				<% if event["venue"]["website"] == {} %>
+  					<strong>Venue:</strong> <%= event["venue"]["name"] %><br>
+  				<% else %>	
+  					<strong>Venue:</strong> <%= link_to event["venue"]["name"], event["venue"]["website"] %><br>
+  				<% end %>
+
+  				<% if event["venue"]["location"]["street"] == {}%>
+  					<strong>Location:</strong> No Location Specified!<br>
+  				<% else %>
+  					<strong>Location:</strong> <%= event["venue"]["location"]["street"] %> 
+  					<% unless event["venue"]["location"]["postalcode"] == {} %> 
+  						<%= event["venue"]["location"]["postalcode"] %>
+  					<% end %>	
+
+  					<% unless event["venue"]["location"]["city"] == {} %>
+  						<%= event["venue"]["location"]["city"] %></br>
+  					<% end %>
+  				<% end %>
+
+  				<strong>Date:</strong> <%= event["startDate"] %>	<br>
+
+  				<% if event["website"] == {} %>
+  					<strong>Sorry Tickets Are Unavailable!</strong><br>
+  				<% else %>
+  					<%= link_to "Get Tickets!", event["website"] %>	<br>
+  				<% end %>
+
+  			<%# info = @lastfm.event.get_info([event["id"]]) %>
+  			<div class="clearfix"><br></div>
+  		</p>
+  		<% end %>	
 </div>
 

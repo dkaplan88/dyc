@@ -3,6 +3,10 @@
 
 <ul>
 	<% @artists.each do |artist| %>
+	  <% if artist_path(artist["name"]) == nil %>
+	  <li><%= artist["name"] %></li>
+	  <% else %>
 		<li><%= link_to artist["name"], artist_path(artist["name"]) %></li>	
+		<% end %>
 	<% end %>
 </ul>

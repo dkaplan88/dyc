@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  headliner: MyString
+  image: MyString
+  full_lineup: MyString
+  venue: MyString
+  location: MyString
+  date: MyString
+  tickets: MyString
+
+two:
+  headliner: MyString
+  image: MyString
+  full_lineup: MyString
+  venue: MyString
+  location: MyString
+  date: MyString
+  tickets: MyString
